@@ -9,9 +9,16 @@
   ],
   "dependencies": {},
   "relatedPackages": {
-    
+
   },
   "repository": {
-   
-  }
+
+  },
+  "samples": [
+    {
+      "displayName": "Label Attribute",
+      "description": "It's a custom attribute in Unity that allows developers to easily rename labels in the Inspector without complex scripting.",
+      "path": "Samples~/LabelAttributeSample"
+    }
+  ]
 }
