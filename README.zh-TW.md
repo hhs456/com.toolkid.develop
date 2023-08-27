@@ -18,7 +18,7 @@ public class Example : MonoBehaviour
 }
 ```
 
-這樣，在Unity Inspector中，這個字段將顯示為"生命值"，而不是默認的"health"。
+在Unity Inspector中，這個字段將顯示為"生命值"，而不是默認的"health"。
 
 ### ReadOnlyAttribute
 
@@ -36,7 +36,28 @@ public class Example : MonoBehaviour
 }
 ```
 
-如此一來，在Unity Inspector中，這個欄位將不能被編輯，僅供閱讀使用。
+在Unity Inspector中，這個欄位將不能被編輯，僅供閱讀使用。
+
+### EnumExtension
+
+`EnumExtension`提供了兩個實用方法，用於使用`InspectorNameAttribute`在Unity的Inspector中獲取枚舉值的自定義顯示名稱。
+
+#### 使用方法
+
+1. **GetInspectorName**: 此方法返回給定枚舉值的自定義顯示名稱。
+
+    ```csharp
+    MyEnum enumValue = MyEnum.Option1;
+    string displayName = enumValue.GetInspectorName();
+    ```
+
+2. **GetInspectorNames**: 此方法返回一個包含枚舉類型中所有值的自定義顯示名稱的陣列。
+
+    ```csharp
+    string[] displayNames = MyEnum.Option1.GetInspectorNames();
+    ```
+
+這兩個方法都會查找枚舉字段上的`InspectorNameAttribute`，如果找到，則返回自定義名稱。如果沒有找到，它們將返回原始的枚舉名稱並記錄一個警告。
 
 ### 注意事項
 
