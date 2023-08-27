@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Reflection;
 using System.Linq;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace Toolkid
 {
@@ -10,30 +11,58 @@ namespace Toolkid
     {
         public static string GetInspectorName(this Enum enumValue) {
             Type type = enumValue.GetType();
-            string name = enumValue.ToString().Replace(" ","");
-            string[] names = name.Split(',');
-            int size = names.Length;
-            for (int i = 0; i < size; i++) {
-             var field = type.GetField(names[i]);
-                var attributes = field.GetCustomAttributes<InspectorNameAttribute>();
-                if (i > 0) {
-                    name += ", ";
+            string[] names = enumValue.ToString().Split(',');
+            var displayNameList = new List<string>();
+
+            foreach (var name in names) {
+                var field = type.GetField(name.Trim());
+                if (field == null) {
+                    Debug.LogWarning($"Field not found for enum value: {name}");
+                    continue;
                 }
-                name += attributes.FirstOrDefault()?.displayName ?? string.Empty;
-            }            
-            return name;
+
+                var attributes = field.GetCustomAttributes<InspectorNameAttribute>();
+                var displayName = attributes.FirstOrDefault()?.displayName;
+
+                if (string.IsNullOrEmpty(displayName)) {
+                    Debug.LogWarning($"InspectorNameAttribute not found for enum value: {name}");
+                    displayNameList.Add(name); // Use the original name if no attribute found
+                }
+                else {
+                    displayNameList.Add(displayName);
+                }
+            }
+
+            return string.Join(", ", displayNameList);
         }
 
+
         public static string[] GetInspectorNames(this Enum enumValue) {
-            Type type = enumValue.GetType();            
+            Type type = enumValue.GetType();
             string[] names = Enum.GetNames(type);
             int size = names.Length;
+
             for (int i = 0; i < size; i++) {
                 var field = type.GetField(names[i]);
-                var attributes = field.GetCustomAttributes<InspectorNameAttribute>();                
-                names[i] = attributes.FirstOrDefault()?.displayName ?? string.Empty;
+                if (field == null) {
+                    Debug.LogWarning($"Field not found for enum value: {names[i]}");
+                    continue; // Keep the original name if the field is not found
+                }
+
+                var attributes = field.GetCustomAttributes<InspectorNameAttribute>();
+                var displayName = attributes.FirstOrDefault()?.displayName;
+
+                if (string.IsNullOrEmpty(displayName)) {
+                    Debug.LogWarning($"InspectorNameAttribute not found for enum value: {names[i]}");
+                    // Keep the original name if no attribute found
+                }
+                else {
+                    names[i] = displayName;
+                }
             }
+
             return names;
         }
+
     }
 }

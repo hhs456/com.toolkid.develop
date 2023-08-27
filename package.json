@@ -1,24 +1,19 @@
 {
   "name": "com.toolkid.editortoolkits",
   "displayName": "Editor Toolkits",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "unity": "2021.3",
   "description": "The editor toolkits package allows developers to simplified constructs Unity's inspector GUI based Unity's API.",
   "keywords": [
     "editor"
   ],
-  "dependencies": {},
-  "relatedPackages": {
-
-  },
-  "repository": {
-
-  },
+  "relatedPackages": {},
+  "repository": {},
   "samples": [
     {
-      "displayName": "Label Attribute",
+      "displayName": "Attributes",
       "description": "It's a custom attribute in Unity that allows developers to easily rename labels in the Inspector without complex scripting.",
-      "path": "Samples~/LabelAttributeSample"
+      "path": "Samples~/Attributes"
     }
   ]
 }

@@ -5,7 +5,7 @@ using Toolkid.Core.Attribute;
 
 public class LabelAttributeSample : MonoBehaviour
 {
-    [Label("§Ç¦C"), ReadOnly] public int index = 0;
+    [Label("§Ç¦C")] public int index = 0;
     [Label("°}¦C")] public int[] array = new int[3];
     [Label("Ãþ§O")] public SampleArgs args = new SampleArgs();
     [Label("Ãþ§O°}¦C")] public SampleArgs[] argsArray = new SampleArgs[3];
