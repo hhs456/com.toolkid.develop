@@ -38,6 +38,27 @@ public class Example : MonoBehaviour
 
 This way, the field will be uneditable in Unity's Inspector and will be read-only.
 
+### EnumExtension
+
+`EnumExtension` provides utility methods to fetch custom display names for enum values in Unity's Inspector using `InspectorNameAttribute`.
+
+#### How to Use
+
+1. **GetInspectorName**: This method returns the custom display name for a given enum value.
+
+    ```csharp
+    MyEnum enumValue = MyEnum.Option1;
+    string displayName = enumValue.GetInspectorName();
+    ```
+
+2. **GetInspectorNames**: This method returns an array of custom display names for all values in an enum type.
+
+    ```csharp
+    string[] displayNames = MyEnum.Option1.GetInspectorNames();
+    ```
+
+Both methods look for the `InspectorNameAttribute` on the enum fields and return the custom names if found. If not found, they return the original enum names and log a warning.
+
 ### Notes
 
 When using the Label attribute, note that Unity's `PropertyDrawer` API does not directly support custom drawing of arrays. This attribute attempts to determine whether it is an element of an array by parsing the property's path and appending an index to the label name. However, this approach will not change the label name of the entire array, only the label names of the array elements.
