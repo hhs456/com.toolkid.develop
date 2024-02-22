@@ -1,8 +1,8 @@
 {
-    "name": "Toolkid.Editortoolkits.Editor",
+    "name": "Toolkid.Develop.Editor",
     "rootNamespace": "Toolkid",
     "references": [
-        "GUID:3154ff8ea2612564fb173d06ae0482c4"
+        "GUID:18207539aeea3ab4b9972db12bff2fef"
     ],
     "includePlatforms": [
         "Editor"

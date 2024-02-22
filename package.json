@@ -1,6 +1,6 @@
 {
-  "name": "com.toolkid.editortoolkits",
-  "displayName": "Editor Toolkits",
+  "name": "com.toolkid.develop",
+  "displayName": "Toolkid.Develop",
   "version": "1.1.0",
   "unity": "2021.3",
   "description": "The editor toolkits package allows developers to simplified constructs Unity's inspector GUI based Unity's API.",
@@ -9,6 +9,10 @@
   ],
   "relatedPackages": {},
   "repository": {},
+  "author": {
+    "name": "Hanson",
+    "url": "https://github.com/hhs456"
+  },
   "samples": [
     {
       "displayName": "Attributes",
