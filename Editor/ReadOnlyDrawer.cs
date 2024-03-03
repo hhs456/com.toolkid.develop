@@ -2,7 +2,7 @@ using Toolkid.Core.Attribute;
 using UnityEditor;
 using UnityEngine;
 
-namespace Toolkid.Editor.Attributes {    
+namespace Toolkid.Attributes {    
     [CustomPropertyDrawer(typeof(ReadOnlyAttribute))]
     public class ReadOnlyDrawer : PropertyDrawer {
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {

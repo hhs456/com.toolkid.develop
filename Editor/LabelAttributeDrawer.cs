@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEditor;
 using Toolkid.Core.Attribute;
 
-namespace Toolkid.Editor.Attributes {
+namespace Toolkid.Attributes {
     // 自定義屬性繪製器，用於繪製帶有自定義標籤的屬性
     [CustomPropertyDrawer(typeof(LabelAttribute))]
     public class LabelAttributeDrawer : PropertyDrawer {
